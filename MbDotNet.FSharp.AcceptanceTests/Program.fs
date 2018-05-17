@@ -2,9 +2,9 @@
 
 open System.Net
 open MbDotNet.FSharp.Imposters
+open MbDotNet.FSharp.Imposters.Http
 
-[<EntryPoint>]
-let main argv =
+let canCreateAndGetHttpImposter =
     let imposter = httpImposter 4545
 
     imposter |> should
@@ -18,5 +18,18 @@ let main argv =
         |> ignore
     
     create imposter
+
+let runTest (testFunc, testFuncName) =
+    deleteAll
+    printfn "RUNNING %s" testFuncName
+    testFunc
+
+let tests = [
+    (canCreateAndGetHttpImposter, "canCreateAndGetHttpImposter")
+]
+
+[<EntryPoint>]
+let main argv =
+    List.map runTest tests |> ignore
 
     0 // return an integer exit code
