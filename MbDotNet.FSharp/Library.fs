@@ -32,7 +32,11 @@ module Imposters =
 
         let httpImposter port = client.CreateHttpImposter(Nullable<int>(port))
 
-        let getHttpImposter port = client.GetHttpImposter(port)
+        let getHttpImposter port = 
+            let imposter = client.GetHttpImposter(port)
+            match imposter with
+                | null -> None
+                | _ -> Some(imposter)
 
         let should (imposter: Imposters.HttpImposter) =
             imposter.AddStub()
