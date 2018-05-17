@@ -32,3 +32,10 @@ To build the project, run the following from the root directory:
 ```
 dotnet build
 ```
+
+The solution includes a set of acceptance tests that run against an actual mountebank instance.
+
+In order to run the acceptance tests, run the following command from the root directory:
+```
+dotnet run --project ./MbDotNet.Acceptance.Tests
+```
