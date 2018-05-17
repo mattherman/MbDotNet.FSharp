@@ -2,7 +2,6 @@
 
 open System.Net
 open MbDotNet.FSharp.Imposters
-open MbDotNet.Enums
 
 [<EntryPoint>]
 let main argv =
@@ -10,12 +9,12 @@ let main argv =
 
     imposter |> should
         |> returnStatus HttpStatusCode.OK
-        |> onPathAndMethodEqual "/test" Method.Get
+        |> onPathAndMethodEqual "/test" Get
         |> ignore
 
     imposter |> should
         |> returnStatus HttpStatusCode.InternalServerError
-        |> onPathAndMethodEqual "/error" Method.Get
+        |> onPathAndMethodEqual "/error" Get
         |> ignore
     
     create imposter
