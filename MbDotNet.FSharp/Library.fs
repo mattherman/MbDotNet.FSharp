@@ -10,6 +10,9 @@ module Imposters =
     let create (imposter: Imposters.Imposter) =
         client.Submit(imposter)
 
+    let delete port =
+        client.DeleteImposter(port)
+
     let deleteAll =
         client.DeleteAllImposters()
 
@@ -70,3 +73,15 @@ module Imposters =
         
         let should (imposter: Imposters.TcpImposter) =
             imposter.AddStub()
+
+        let getTcpImposter port = 
+            let imposter = client.GetTcpImposter(port)
+            match imposter with
+                | null -> None
+                | _ -> Some(imposter)
+
+        let returnData data (stub: Stubs.TcpStub) =
+            stub.ReturnsData(data)
+
+        let onDataEquals data (stub: Stubs.TcpStub) =
+            stub.OnDataEquals(data)
