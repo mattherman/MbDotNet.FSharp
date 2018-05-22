@@ -35,8 +35,16 @@ module Imposters =
 
         let httpImposter port = client.CreateHttpImposter(Nullable<int>(port))
 
+        let httpsImposter port = client.CreateHttpsImposter(Nullable<int>(port))
+
         let getHttpImposter port = 
             let imposter = client.GetHttpImposter(port)
+            match imposter with
+                | null -> None
+                | _ -> Some(imposter)
+
+        let getHttpsImposter port = 
+            let imposter = client.GetHttpsImposter(port)
             match imposter with
                 | null -> None
                 | _ -> Some(imposter)
@@ -67,6 +75,10 @@ module Imposters =
 
         let onPathAndMethodEqual path method (stub: Stubs.HttpStub) =
             stub.OnPathAndMethodEqual(path, parseMethodEnum method)
+
+    module Https =
+        let should (imposter: Imposters.HttpsImposter) =
+            imposter.AddStub()
 
     module Tcp =
         let tcpImposter port = client.CreateTcpImposter(Nullable<int>(port))

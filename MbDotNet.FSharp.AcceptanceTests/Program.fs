@@ -25,8 +25,28 @@ let canCreateAndGetHttpImposter =
         | Some(_) -> true
         | None -> false
 
-let canCreateAndGetTcpImposter =
+let canCreateAndGetHttpsImposter =
     let port = 4501
+    let imposter = httpsImposter port
+
+    imposter |> Https.should
+        |> returnStatus HttpStatusCode.OK
+        |> onPathAndMethodEqual "/test" Get
+        |> ignore
+
+    imposter |> Https.should
+        |> returnStatus HttpStatusCode.InternalServerError
+        |> onPathAndMethodEqual "/error" Get
+        |> ignore
+    
+    create imposter
+
+    match getHttpsImposter port with
+        | Some(_) -> true
+        | None -> false
+
+let canCreateAndGetTcpImposter =
+    let port = 4502
     let imposter = tcpImposter port
 
     imposter |> Tcp.should
@@ -50,10 +70,10 @@ let runTest (testFunc, testFuncName) =
 
     result
 
-
 let tests = [
     (canCreateAndGetHttpImposter, "canCreateAndGetHttpImposter");
-    (canCreateAndGetTcpImposter, "canCreateAndGetTcpImposter")
+    (canCreateAndGetHttpsImposter, "canCreateAndGetHttpsImposter");
+    (canCreateAndGetTcpImposter, "canCreateAndGetTcpImposter");
 ]
 
 [<EntryPoint>]
