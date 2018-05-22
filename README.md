@@ -6,16 +6,35 @@ F# with more idiomatic syntax.
 
 A simple example:
 ```
-let imposter = httpImposter 4545 "My Imposter"
+open MbDotNet.FSharp.Imposters
+open MbDotNet.FSharp.Imposters.Http
+
+let imposter = httpImposter 4545
+
+// Return JSON on a GET request to '/test'
 imposter
     |> should
-    |> returnStatus HttpStatusCode.OK
+    |> returnJson HttpStatusCode.OK myResponseObject
     |> onPathAndMethodEqual "/test" Method.Get
+    |> ignore
+
+// Return a 404 on any other request
+imposter
+    |> should
+    |> returnStatus HttpStatusCode.NotFound
+    |> ignore
+
+create imposter
 ```
 
 ## NuGet Package
 
-The library will be available as a NuGet package once enough of the API has been wrapped.
+The library is available for install as a NuGet package:
+
+https://www.nuget.org/packages/MbDotNet.FSharp
+
+For now, only prerelease versions are available as the API may change over time, however, it is definitely usable
+in its current state and supports basic stubs for HTTP, HTTPS, and TCP imposters.
 
 ## Development
 
