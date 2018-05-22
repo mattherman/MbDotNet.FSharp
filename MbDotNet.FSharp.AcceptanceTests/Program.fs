@@ -1,6 +1,4 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open System.Net
+﻿open System.Net
 open MbDotNet.FSharp.Imposters
 open MbDotNet.FSharp.Imposters.Http
 open MbDotNet.FSharp.Imposters.Tcp

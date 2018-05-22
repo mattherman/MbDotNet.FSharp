@@ -2,6 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+
+    <!-- NuGet Metadata-->
+    <Version>0.0.1-prerelease</Version>
+    <PackageId>MbDotNet.FSharp</PackageId>
+    <Title>MbDotNet.FSharp</Title>
+    <Authors>Matthew Herman</Authors>
+    <Description>An F# wrapper around MbDotNet</Description>
+    <Copyright>Copyright ©  2018</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>http://github.com/mattherman/MbDotNet.FSharp/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>http://github.com/mattherman/MbDotNet.FSharp</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/mattherman/MbDotNet.FSharp/releases</PackageReleaseNotes>
+    <PackageTags>mountebank client wrapper</PackageTags>
+    <BuildOutputTargetFolder>lib</BuildOutputTargetFolder>
   </PropertyGroup>
 
   <ItemGroup>
