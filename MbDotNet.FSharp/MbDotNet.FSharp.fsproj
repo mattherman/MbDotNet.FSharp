@@ -11,7 +11,7 @@
     <Description>An F# wrapper around MbDotNet</Description>
     <Copyright>Copyright ©  2018</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>http://github.com/mattherman/MbDotNet.FSharp/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageLicenseUrl>http://github.com/mattherman/MbDotNet.FSharp/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>http://github.com/mattherman/MbDotNet.FSharp</PackageProjectUrl>
     <PackageReleaseNotes>https://github.com/mattherman/MbDotNet.FSharp/releases</PackageReleaseNotes>
     <PackageTags>mountebank client wrapper</PackageTags>
