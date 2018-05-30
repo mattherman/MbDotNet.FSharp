@@ -1,7 +1,7 @@
 ﻿open System.Net
-open MbDotNet.FSharp.Imposters
-open MbDotNet.FSharp.Imposters.Http
-open MbDotNet.FSharp.Imposters.Tcp
+open MbDotNet.FSharp.Imposter
+open MbDotNet.FSharp.Imposter.Http
+open MbDotNet.FSharp.Imposter.Tcp
 
 let canCreateAndGetHttpImposter =
     let port = 4500

@@ -4,7 +4,7 @@ open MbDotNet
 open MbDotNet.Models
 open System
 
-module Imposters =
+module Imposter =
     let client = new MountebankClient()
 
     let create (imposter: Imposters.Imposter) =
@@ -19,7 +19,7 @@ module Imposters =
     module Http =
         type Method = Get | Post | Patch | Delete | Put | Head | Trace | Options | Connect
 
-        let parseMethodEnum input =
+        let private parseMethodEnum input =
             match input with
                 | Get -> Enums.Method.Get
                 | Post -> Enums.Method.Post
